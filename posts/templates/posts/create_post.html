@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Blueprint Index page
+
+{% endblock %}
+
+
+{% block content_title %}
+
+    Posts
+
+{% endblock %}
+
+
+{% block content %}
+<div class="col-md-6">
+    <form action="{{ url_for('posts.create_post') }}" method="POST">
+        {% for field in form %}
+            <div class="form-post">
+            {{ field.label(class = 'control-label') }}
+            {{ field(class = 'form-control') }}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-danger">Create</button>
+    </form>
+</div>
+{% endblock %}
